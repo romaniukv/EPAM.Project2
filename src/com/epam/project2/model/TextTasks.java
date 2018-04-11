@@ -29,7 +29,7 @@ public class TextTasks {
                 }
             }
             if (letterCount.get(max).equals(letterCount.get(i))) {
-                swapByAlphabet(letterCount, words, i, max);
+                swapByAlphabet(words, i, max);
             } else {
                 Collections.swap(letterCount, i, max);
                 Collections.swap(words, i, max);
@@ -45,12 +45,12 @@ public class TextTasks {
         return String.valueOf(stringBuffer);
     }
 
-    private void swapByAlphabet(List<Integer> letterCount, List<Word> words, int i, int j) {
+    private void swapByAlphabet(List<Word> words, int i, int j) {
         String word1 = words.get(i).makeWord();
         String word2 = words.get(j).makeWord();
         if (word1.compareTo(word2) > 0) {
             Collections.swap(words, j, i);
-            Collections.swap(letterCount, j, i);
+            //Collections.swap(letterCount, j, i);
         }
     }
 
