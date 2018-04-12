@@ -2,6 +2,7 @@ package com.epam.project2.model.entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Word implements Comparable {
 
@@ -38,5 +39,13 @@ public class Word implements Comparable {
     @Override
     public int compareTo(Object o) {
         return 0;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Word word = (Word) o;
+        return Objects.equals(letters, word.letters);
     }
 }

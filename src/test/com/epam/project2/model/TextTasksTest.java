@@ -1,12 +1,12 @@
 package test.com.epam.project2.model;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class TextTasksTest {
+public class TextTasksTest {
 
     @Test
-    void sortByLetterCount() {
+    public void sortByLetterCount() {
     }
 }

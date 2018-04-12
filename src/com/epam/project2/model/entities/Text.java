@@ -7,6 +7,9 @@ public class Text {
 
     private List<Sentence> sentences;
 
+    public Text() {
+    }
+
     public Text(String text) {
         this.sentences = splitIntoSentences(text);
     }
@@ -16,7 +19,7 @@ public class Text {
         List<Sentence> resultSentences = new ArrayList<>();
         String[] splitSentences = fixedText.split(PunctuationMark.TEXT_DELIMITERS);
         for (String str: splitSentences) {
-            resultSentences.add(new Sentence(str));
+            resultSentences.add(new Sentence(str.trim()));
         }
         return resultSentences;
     }

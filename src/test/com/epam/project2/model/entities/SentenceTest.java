@@ -1,12 +1,12 @@
 package test.com.epam.project2.model.entities;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class SentenceTest {
+public class SentenceTest {
 
     @Test
-    void splitIntoWords() {
+    public void splitIntoWords() {
     }
 }

@@ -2,6 +2,7 @@ package com.epam.project2.model.entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Sentence {
 
@@ -32,5 +33,13 @@ public class Sentence {
             stringBuffer.append(" ");
         }
         return String.valueOf(stringBuffer);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Sentence sentence = (Sentence) o;
+        return Objects.equals(words, sentence.words);
     }
 }

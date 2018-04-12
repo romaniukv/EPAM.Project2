@@ -1,7 +1,5 @@
 package com.epam.project2.model.entities;
 
-import java.util.Objects;
-
 public class Letter {
     private char letter;
 
@@ -25,5 +23,4 @@ public class Letter {
         Letter letter1 = (Letter) o;
         return letter == letter1.letter;
     }
-
 }
