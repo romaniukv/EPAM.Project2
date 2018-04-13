@@ -14,10 +14,10 @@ public class Text {
         this.sentences = splitIntoSentences(text);
     }
 
-    public List<Sentence> splitIntoSentences(String text) {
-        String fixedText = replaceMultipleSpaces(text);
+    public List<Sentence> splitIntoSentences(String txt) {
+        String text = replaceMultipleSpaces(txt);
         List<Sentence> resultSentences = new ArrayList<>();
-        String[] splitSentences = fixedText.split(PunctuationMark.TEXT_DELIMITERS);
+        String[] splitSentences = text.split(PunctuationMark.TEXT_DELIMITERS);
         for (String str: splitSentences) {
             resultSentences.add(new Sentence(str.trim()));
         }
