@@ -13,7 +13,7 @@ public class Word implements Comparable {
     }
 
     private void splitIntoLetters(String word) {
-        char[] charLetters = word.toCharArray();
+        char[] charLetters = word.toLowerCase().toCharArray();
         for (char letter: charLetters) {
             letters.add(new Letter(letter));
         }
