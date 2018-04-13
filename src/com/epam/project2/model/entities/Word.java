@@ -24,16 +24,12 @@ public class Word implements Comparable {
         return letters;
     }
 
-    public String makeWord() {
+    @Override
+    public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
         for (Letter letter: letters)
             stringBuffer.append(letter.getLetter());
         return String.valueOf(stringBuffer);
-    }
-
-    @Override
-    public String toString() {
-        return makeWord();
     }
 
     @Override
