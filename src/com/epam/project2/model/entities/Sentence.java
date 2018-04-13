@@ -8,6 +8,9 @@ public class Sentence {
 
     private List<Word> words;
 
+    public Sentence() {
+    }
+
     public Sentence(String sentence) {
         this.words = splitIntoWords(sentence);
     }
