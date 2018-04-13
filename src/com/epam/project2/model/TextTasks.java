@@ -12,9 +12,7 @@ public class TextTasks {
     private Text text;
     private Letter letter;
 
-    public TextTasks(Text text, Letter letter) {
-        this.text = text;
-        this.letter = letter;
+    public TextTasks() {
     }
 
     public String sortByLetterCount() {
@@ -40,8 +38,10 @@ public class TextTasks {
 
     private String makeStringFromWordList(List<Word> words) {
         StringBuffer stringBuffer = new StringBuffer();
-        for (Word word: words)
+        for (Word word: words) {
             stringBuffer.append(word.makeWord());
+            stringBuffer.append(" ");
+        }
         return String.valueOf(stringBuffer);
     }
 
@@ -50,7 +50,6 @@ public class TextTasks {
         String word2 = words.get(j).makeWord();
         if (word1.compareTo(word2) > 0) {
             Collections.swap(words, j, i);
-            //Collections.swap(letterCount, j, i);
         }
     }
 
@@ -76,5 +75,13 @@ public class TextTasks {
         for (Sentence sentence: text.getSentences())
             allWords.addAll(sentence.getWords());
         return allWords;
+    }
+
+    public void setText(Text text) {
+        this.text = text;
+    }
+
+    public void setLetter(Letter letter) {
+        this.letter = letter;
     }
 }
