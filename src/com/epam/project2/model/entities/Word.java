@@ -4,20 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Word implements Comparable {
+public class Word {
 
-    private List<Letter> letters = new ArrayList<>();
+    private List<Letter> letters;
 
     public Word(String word) {
-        splitIntoLetters(word);
+        this.letters = splitIntoLetters(word);
     }
 
-    private void splitIntoLetters(String word) {
+    private List<Letter> splitIntoLetters(String word) {
+        List<Letter> resultLetters = new ArrayList<>();
         char[] charLetters = word.toLowerCase().toCharArray();
         for (char letter: charLetters) {
-            letters.add(new Letter(letter));
+            resultLetters.add(new Letter(letter));
         }
-
+        return resultLetters;
     }
 
     public List<Letter> getLetters() {
@@ -30,11 +31,6 @@ public class Word implements Comparable {
         for (Letter letter: letters)
             stringBuffer.append(letter.getLetter());
         return String.valueOf(stringBuffer);
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        return 0;
     }
 
     @Override
