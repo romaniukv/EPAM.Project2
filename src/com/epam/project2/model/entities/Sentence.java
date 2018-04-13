@@ -32,7 +32,7 @@ public class Sentence {
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
         for (Word word: words) {
-            stringBuffer.append(word.makeWord());
+            stringBuffer.append(word);
             stringBuffer.append(" ");
         }
         return String.valueOf(stringBuffer);

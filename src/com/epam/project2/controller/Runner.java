@@ -27,7 +27,8 @@ public class Runner {
                     textTasks.setText(new Text(InputUtils.inputText()));
                     viewer.printString(Viewer.INPUT_LETTER);
                     textTasks.setLetter(new Letter(InputUtils.inputLetter()));
-                    System.out.println(textTasks.sortByLetterCount());
+                    viewer.printString(Viewer.SORT_RESULT);
+                    viewer.printString(textTasks.sortByLetterCount());
                     break;
                 case 2:
                     break;

@@ -39,15 +39,15 @@ public class TextTasks {
     private String makeStringFromWordList(List<Word> words) {
         StringBuffer stringBuffer = new StringBuffer();
         for (Word word: words) {
-            stringBuffer.append(word.makeWord());
+            stringBuffer.append(word.toString());
             stringBuffer.append(" ");
         }
         return String.valueOf(stringBuffer);
     }
 
     private void swapByAlphabet(List<Word> words, int i, int j) {
-        String word1 = words.get(i).makeWord();
-        String word2 = words.get(j).makeWord();
+        String word1 = words.get(i).toString();
+        String word2 = words.get(j).toString();
         if (word1.compareTo(word2) > 0) {
             Collections.swap(words, j, i);
         }
