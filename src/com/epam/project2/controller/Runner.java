@@ -32,8 +32,6 @@ public class Runner {
                     break;
                 case 2:
                     break;
-                default:
-                    viewer.printString(Viewer.INPUT_ERROR);
             }
         }
     }
