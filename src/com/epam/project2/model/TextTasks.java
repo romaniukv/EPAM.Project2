@@ -5,7 +5,10 @@ import com.epam.project2.model.entities.Sentence;
 import com.epam.project2.model.entities.Text;
 import com.epam.project2.model.entities.Word;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 
 public class TextTasks {
 
@@ -16,23 +19,22 @@ public class TextTasks {
     }
 
     public String sortByLetterCount() {
-        List<Integer>  letterCount = countLetterOccurrences();
+        List<Integer> letterCount = countLetterOccurrences();
+        System.out.println(letterCount);
         List<Word> words = getAllWordsFromText();
-        int max;
-        for (int i = 0; i < words.size() - 1; i++) {
-            max = i;
-            for (int j = i + 1; j < words.size(); j++) {
-                if (letterCount.get(max).compareTo(letterCount.get(j)) <= 0) {
-                    max = j;
+
+        for (int i = letterCount.size() - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (letterCount.get(j).compareTo(letterCount.get(j + 1)) < 0) {
+                    Collections.swap(letterCount, j, j + 1);
+                    Collections.swap(words, j, j + 1);
+                }
+                else if (letterCount.get(j).compareTo(letterCount.get(j + 1)) == 0) {
+                    swapByAlphabet(letterCount, words, j, j + 1);
                 }
             }
-            if (letterCount.get(max).equals(letterCount.get(i))) {
-                swapByAlphabet(words, i, max);
-            } else {
-                Collections.swap(letterCount, i, max);
-                Collections.swap(words, i, max);
-            }
         }
+
         return makeStringFromWordList(words);
     }
 
@@ -42,14 +44,15 @@ public class TextTasks {
             stringBuffer.append(word.toString());
             stringBuffer.append(" ");
         }
-        return String.valueOf(stringBuffer);
+        return String.valueOf(stringBuffer.deleteCharAt(stringBuffer.length() - 1)); // Delete last space and return result
     }
 
-    private void swapByAlphabet(List<Word> words, int i, int j) {
+    private void swapByAlphabet(List<Integer> letterCount, List<Word> words, int i, int j) {
         String word1 = words.get(i).toString();
         String word2 = words.get(j).toString();
-        if (word1.compareTo(word2) > 0) {
+        if (word1.compareToIgnoreCase(word2) > 0) {
             Collections.swap(words, j, i);
+            Collections.swap(letterCount, j, i);
         }
     }
 
