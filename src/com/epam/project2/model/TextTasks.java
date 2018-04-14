@@ -20,9 +20,7 @@ public class TextTasks {
 
     public String sortByLetterCount() {
         List<Integer> letterCount = countLetterOccurrences();
-        System.out.println(letterCount);
         List<Word> words = getAllWordsFromText();
-
         for (int i = letterCount.size() - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
                 if (letterCount.get(j).compareTo(letterCount.get(j + 1)) < 0) {
