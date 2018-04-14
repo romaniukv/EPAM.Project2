@@ -30,12 +30,20 @@ public class TextTasks {
                     Collections.swap(words, j, j + 1);
                 }
                 else if (letterCount.get(j).compareTo(letterCount.get(j + 1)) == 0) {
-                    swapByAlphabet(letterCount, words, j, j + 1);
+                    swapByAlphabet(words, j, j + 1);
                 }
             }
         }
 
         return makeStringFromWordList(words);
+    }
+
+    private void swapByAlphabet(List<Word> words, int i, int j) {
+        String word1 = words.get(i).toString();
+        String word2 = words.get(j).toString();
+        if (word1.compareToIgnoreCase(word2) > 0) {
+            Collections.swap(words, j, i);
+        }
     }
 
     private String makeStringFromWordList(List<Word> words) {
@@ -47,30 +55,17 @@ public class TextTasks {
         return String.valueOf(stringBuffer.deleteCharAt(stringBuffer.length() - 1)); // Delete last space and return result
     }
 
-    private void swapByAlphabet(List<Integer> letterCount, List<Word> words, int i, int j) {
-        String word1 = words.get(i).toString();
-        String word2 = words.get(j).toString();
-        if (word1.compareToIgnoreCase(word2) > 0) {
-            Collections.swap(words, j, i);
-            Collections.swap(letterCount, j, i);
-        }
-    }
-
     private List<Integer> countLetterOccurrences() {
         List<Integer>  letterCount = new ArrayList<>();
         for (Word word: getAllWordsFromText()) {
-            letterCount.add(countLetter(word));
+            int n = 0;
+            for (Letter l: word.getLetters()) {
+                if (letter.equals(l))
+                    n++;
+            }
+            letterCount.add(n);
         }
         return letterCount;
-    }
-
-    private int countLetter(Word word) {
-        int n = 0;
-        for (Letter l: word.getLetters()) {
-            if (letter.equals(l))
-                n++;
-        }
-        return n;
     }
 
     private List<Word> getAllWordsFromText() {
